@@ -1,5 +1,5 @@
 //
-//  ViewController.swift
+//  SearchResultsViewController.swift
 //  HelloWorld2
 //
 //  Created by Michael on 02.06.15.
@@ -8,9 +8,11 @@
 
 import UIKit
 
-class ViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
+class SearchResultsViewController: UIViewController, UITableViewDataSource, UITableViewDelegate, APIControllerProtocol {
     
     var tableData = []
+    
+    let api = APIController()
     
     @IBOutlet var appsTableView : UITableView!
 
@@ -46,42 +48,20 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
-        searchItunesFor("JQ Software")
+        api.searchItunesFor("Angry Birds")
+        api.delegate = self
     }
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
-
-    func searchItunesFor(searchTerm: String) {
-        let itunesSearchTerm = searchTerm.stringByReplacingOccurrencesOfString(" ", withString: "+", options: NSStringCompareOptions.CaseInsensitiveSearch, range: nil)
-        
-        if let escapedSearchTerm = itunesSearchTerm.stringByAddingPercentEscapesUsingEncoding(NSUTF8StringEncoding) {
-            let urlPath = "http://itunes.apple.com/search?term=\(escapedSearchTerm)&media=software"
-            let url = NSURL(string: urlPath)
-            let session = NSURLSession.sharedSession()
-            let task = session.dataTaskWithURL(url!, completionHandler: {data, response, error -> Void in
-                println("Task completed")
-                if error != nil {
-                    println(error.localizedDescription)
-                }
-                var err: NSError?
-                if let jsonResult = NSJSONSerialization.JSONObjectWithData(data, options: NSJSONReadingOptions.MutableContainers, error: &err) as? NSDictionary {
-                    if err != nil {
-                        println("JSON Error \(err!.localizedDescription)")
-                    }
-                    if let results: NSArray = jsonResult["results"] as? NSArray {
-                        dispatch_async(dispatch_get_main_queue(), {
-                            self.tableData = results
-                            self.appsTableView!.reloadData()
-                        })
-                    }
-                }
-            })
-            
-            task.resume()
-        }
+    
+    func didReceiveAPIResults(results: NSArray) {
+        dispatch_async(dispatch_get_main_queue(), {
+            self.tableData = results
+            self.appsTableView!.reloadData()
+        })
     }
 
 }
