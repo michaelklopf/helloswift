@@ -14,6 +14,7 @@
 		4C3C8F291B1E452A00F61CF4 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4C3C8F271B1E452A00F61CF4 /* LaunchScreen.xib */; };
 		4C3C8F351B1E452A00F61CF4 /* HelloWorld2Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C3C8F341B1E452A00F61CF4 /* HelloWorld2Tests.swift */; };
 		4C3C8F3F1B1F630F00F61CF4 /* APIController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C3C8F3E1B1F630F00F61CF4 /* APIController.swift */; };
+		4C3C8F411B20F51300F61CF4 /* Blank52.png in Resources */ = {isa = PBXBuildFile; fileRef = 4C3C8F401B20F51300F61CF4 /* Blank52.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -38,6 +39,7 @@
 		4C3C8F331B1E452A00F61CF4 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		4C3C8F341B1E452A00F61CF4 /* HelloWorld2Tests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HelloWorld2Tests.swift; sourceTree = "<group>"; };
 		4C3C8F3E1B1F630F00F61CF4 /* APIController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = APIController.swift; sourceTree = "<group>"; };
+		4C3C8F401B20F51300F61CF4 /* Blank52.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Blank52.png; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -79,6 +81,7 @@
 		4C3C8F1B1B1E452A00F61CF4 /* HelloWorld2 */ = {
 			isa = PBXGroup;
 			children = (
+				4C3C8F401B20F51300F61CF4 /* Blank52.png */,
 				4C3C8F3E1B1F630F00F61CF4 /* APIController.swift */,
 				4C3C8F1E1B1E452A00F61CF4 /* AppDelegate.swift */,
 				4C3C8F201B1E452A00F61CF4 /* SearchResultsViewController.swift */,
@@ -196,6 +199,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				4C3C8F241B1E452A00F61CF4 /* Main.storyboard in Resources */,
+				4C3C8F411B20F51300F61CF4 /* Blank52.png in Resources */,
 				4C3C8F291B1E452A00F61CF4 /* LaunchScreen.xib in Resources */,
 				4C3C8F261B1E452A00F61CF4 /* Images.xcassets in Resources */,
 			);
