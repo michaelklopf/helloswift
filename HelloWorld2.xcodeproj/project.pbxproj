@@ -15,6 +15,8 @@
 		4C3C8F351B1E452A00F61CF4 /* HelloWorld2Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C3C8F341B1E452A00F61CF4 /* HelloWorld2Tests.swift */; };
 		4C3C8F3F1B1F630F00F61CF4 /* APIController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C3C8F3E1B1F630F00F61CF4 /* APIController.swift */; };
 		4C3C8F411B20F51300F61CF4 /* Blank52.png in Resources */ = {isa = PBXBuildFile; fileRef = 4C3C8F401B20F51300F61CF4 /* Blank52.png */; };
+		4C3C8F431B21D74800F61CF4 /* Album.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C3C8F421B21D74800F61CF4 /* Album.swift */; };
+		4C3C8F451B22355300F61CF4 /* DetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C3C8F441B22355300F61CF4 /* DetailsViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -40,6 +42,8 @@
 		4C3C8F341B1E452A00F61CF4 /* HelloWorld2Tests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HelloWorld2Tests.swift; sourceTree = "<group>"; };
 		4C3C8F3E1B1F630F00F61CF4 /* APIController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = APIController.swift; sourceTree = "<group>"; };
 		4C3C8F401B20F51300F61CF4 /* Blank52.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Blank52.png; sourceTree = "<group>"; };
+		4C3C8F421B21D74800F61CF4 /* Album.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Album.swift; sourceTree = "<group>"; };
+		4C3C8F441B22355300F61CF4 /* DetailsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DetailsViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -89,6 +93,8 @@
 				4C3C8F251B1E452A00F61CF4 /* Images.xcassets */,
 				4C3C8F271B1E452A00F61CF4 /* LaunchScreen.xib */,
 				4C3C8F1C1B1E452A00F61CF4 /* Supporting Files */,
+				4C3C8F421B21D74800F61CF4 /* Album.swift */,
+				4C3C8F441B22355300F61CF4 /* DetailsViewController.swift */,
 			);
 			path = HelloWorld2;
 			sourceTree = "<group>";
@@ -222,6 +228,8 @@
 				4C3C8F211B1E452A00F61CF4 /* SearchResultsViewController.swift in Sources */,
 				4C3C8F1F1B1E452A00F61CF4 /* AppDelegate.swift in Sources */,
 				4C3C8F3F1B1F630F00F61CF4 /* APIController.swift in Sources */,
+				4C3C8F431B21D74800F61CF4 /* Album.swift in Sources */,
+				4C3C8F451B22355300F61CF4 /* DetailsViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
