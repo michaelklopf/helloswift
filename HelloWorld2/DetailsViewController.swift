@@ -7,16 +7,20 @@
 //
 
 import UIKit
+import MediaPlayer
 
 class DetailsViewController: UIViewController,  UITableViewDataSource, UITableViewDelegate, APIControllerProtocol {
-    lazy var api : APIController = APIController(delegate: self)
+    lazy var api: APIController = APIController(delegate: self)
     
     @IBOutlet weak var albumCover: UIImageView!
     @IBOutlet weak var titleLabel: UILabel!
     @IBOutlet weak var tracksTableView: UITableView!
     
     var album: Album?
+    var lastSongIndex: Int?
+    var lastCell: TrackCell?
     var tracks = [Track]()
+    var mediaPlayer: MPMoviePlayerController = MPMoviePlayerController()
     
     required init(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
@@ -39,8 +43,28 @@ class DetailsViewController: UIViewController,  UITableViewDataSource, UITableVi
         if self.album != nil {
             api.lookupAlbum(self.album!.collectionId)
         }
+        lastSongIndex = -1
+        lastCell = nil
         titleLabel.text = self.album?.title
         albumCover.image = UIImage(data: NSData(contentsOfURL: NSURL(string: self.album!.largeImageURL)!)!)
+    }
+    
+    func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
+        var currentCell = tableView.cellForRowAtIndexPath(indexPath) as? TrackCell
+        
+        if currentCell != lastCell {
+            lastCell?.playIcon.text = "▶️"
+            lastCell = currentCell
+            lastSongIndex = indexPath.row
+            var track = tracks[indexPath.row]
+            mediaPlayer.stop()
+            mediaPlayer.contentURL = NSURL(string: track.previewUrl)
+            mediaPlayer.play()
+            currentCell!.playIcon.text = "◾️"
+        } else {
+            mediaPlayer.stop()
+            currentCell!.playIcon.text = "▶️"
+        }
     }
     
     func didReceiveAPIResults(results: NSArray) {
