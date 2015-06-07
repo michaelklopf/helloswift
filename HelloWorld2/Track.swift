@@ -10,10 +10,10 @@ import Foundation
 
 struct Track {
     let title: String
-    let price: String
+    let price: Float
     let previewUrl: String
     
-    init(title: String, price: String, previewUrl: String) {
+    init(title: String, price: Float, previewUrl: String) {
         self.title = title
         self.price = price
         self.previewUrl = previewUrl
@@ -25,16 +25,18 @@ struct Track {
             // Create the track
             if let kind = trackInfo["kind"] as? String {
                 if kind == "song" {
-                    var trackPrice = trackInfo["trackPrice"] as? String
+                    var trackPrice = trackInfo["trackPrice"] as? Float
                     var trackTitle = trackInfo["trackName"] as? String
                     var trackPreviewUrl = trackInfo["previewUrl"] as? String
+                    
+                    // println("Values \(trackPrice)  \(trackTitle)  \(trackPreviewUrl)")
+                    
                     if(trackTitle == nil) {
                         trackTitle = "Unknown"
                     }
                     else if(trackPrice == nil) {
-                        println(trackInfo["trackPrice"])
                         println("No trackPrice in \(trackInfo)")
-                        trackPrice = "?"
+                        trackPrice = 0.00
                     }
                     else if(trackPreviewUrl == nil) {
                         trackPreviewUrl = ""

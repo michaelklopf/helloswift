@@ -9,8 +9,7 @@
 import UIKit
 
 class DetailsViewController: UIViewController, APIControllerProtocol {
-    // alternativly because cleaner: lazy var api : APIController = APIController(delegate: self)
-    var api: APIController!
+    lazy var api : APIController = APIController(delegate: self)
     
     @IBOutlet weak var albumCover: UIImageView!
     @IBOutlet weak var titleLabel: UILabel!
@@ -25,7 +24,6 @@ class DetailsViewController: UIViewController, APIControllerProtocol {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        api = APIController(delegate: self)
         if self.album != nil {
             api.lookupAlbum(self.album!.collectionId)
         }
