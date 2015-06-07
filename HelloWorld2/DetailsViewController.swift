@@ -65,6 +65,15 @@ class DetailsViewController: UIViewController,  UITableViewDataSource, UITableVi
             mediaPlayer.stop()
             currentCell!.playIcon.text = "▶️"
         }
+        
+        // different idea for media playback controls here -> http://jamesonquave.com/blog/drawing-custom-views-with-swift-andrew-vanwagoner/
+    }
+    
+    func tableView(tableView: UITableView, willDisplayCell cell: UITableViewCell, forRowAtIndexPath indexPath: NSIndexPath) {
+        cell.layer.transform = CATransform3DMakeScale(0.1,0.1,1)
+        UIView.animateWithDuration(0.25, animations: {
+            cell.layer.transform = CATransform3DMakeScale(1,1,1)
+        })
     }
     
     func didReceiveAPIResults(results: NSArray) {
