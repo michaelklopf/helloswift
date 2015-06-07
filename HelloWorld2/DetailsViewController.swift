@@ -8,7 +8,7 @@
 
 import UIKit
 
-class DetailsViewController: UIViewController, APIControllerProtocol {
+class DetailsViewController: UIViewController,  UITableViewDataSource, UITableViewDelegate, APIControllerProtocol {
     lazy var api : APIController = APIController(delegate: self)
     
     @IBOutlet weak var albumCover: UIImageView!
@@ -22,15 +22,6 @@ class DetailsViewController: UIViewController, APIControllerProtocol {
         super.init(coder: aDecoder)
     }
     
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        if self.album != nil {
-            api.lookupAlbum(self.album!.collectionId)
-        }
-        titleLabel.text = self.album?.title
-        albumCover.image = UIImage(data: NSData(contentsOfURL: NSURL(string: self.album!.largeImageURL)!)!)
-    }
-    
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return tracks.count
     }
@@ -41,6 +32,15 @@ class DetailsViewController: UIViewController, APIControllerProtocol {
         cell.titleLabel.text = track.title
         cell.playIcon.text = "▶️"
         return cell
+    }
+    
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        if self.album != nil {
+            api.lookupAlbum(self.album!.collectionId)
+        }
+        titleLabel.text = self.album?.title
+        albumCover.image = UIImage(data: NSData(contentsOfURL: NSURL(string: self.album!.largeImageURL)!)!)
     }
     
     func didReceiveAPIResults(results: NSArray) {

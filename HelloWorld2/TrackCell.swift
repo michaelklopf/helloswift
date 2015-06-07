@@ -9,6 +9,7 @@
 import UIKit
 
 class TrackCell: UITableViewCell {
-    @IBOutlet weak var playIcon: UILabel!
     @IBOutlet weak var titleLabel: UILabel!
+    @IBOutlet weak var playIcon: UILabel!
+    
 }
